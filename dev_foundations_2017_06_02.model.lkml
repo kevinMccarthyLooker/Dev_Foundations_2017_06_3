@@ -20,5 +20,5 @@ explore: order_items {
     sql_on: ${order_items.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
-# TODO: Join in products
+
 }
