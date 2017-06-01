@@ -15,6 +15,27 @@ view: users {
     sql: ${TABLE}.AGE ;;
   }
 
+  dimension: age_under_30 {
+    type: yesno
+    sql: ${age}<30 ;;
+  }
+
+  dimension: age_under_40 {
+    type: yesno
+    sql: ${age}<60 ;;
+  }
+
+  dimension: age_under_50 {
+    type: yesno
+    sql: ${age}<50 ;;
+  }
+
+  dimension: age_under_60 {
+    type: yesno
+    sql: ${age}<60 ;;
+  }
+
+
   dimension: age_tier {
     type: tier
     tiers: [20,30,40,50,60,70]
@@ -61,6 +82,15 @@ view: users {
     type: string
     sql: ${TABLE}.GENDER ;;
   }
+
+  dimension: gender2 {
+    type: string
+    sql: ${gender} ;;
+
+  }
+
+
+
 
   dimension: last_name {
     type: string

@@ -85,6 +85,20 @@ view: order_items {
     sql: ${TABLE}.STATUS ;;
   }
 
+
+  dimension: status2 {
+    sql: ${TABLE}.status ;;
+    html:
+    {% if value == 'Paid' %}
+      <p style="color: black; background-color: lightblue; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% elsif value == 'Shipped' %}
+      <p style="color: black; background-color: lightgreen; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% else %}
+      <p style="color: black; background-color: orange; font-size:100%; text-align:center">{{ rendered_value }}</p>
+    {% endif %}
+;;
+  }
+
   dimension: user_id {
     type: number
     # hidden: yes

@@ -22,4 +22,12 @@ explore: order_items {
     relationship: many_to_one
   }
 
+  join: users_summary {
+    type: left_outer
+    sql_on: ${users.state}=${users_summary.users_state} ;;
+    relationship: one_to_one
+  }
+
+
 }
+explore: products {}
