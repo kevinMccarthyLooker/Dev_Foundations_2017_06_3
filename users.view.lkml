@@ -7,14 +7,25 @@ view: users {
     sql: ${TABLE}.ID ;;
   }
 
+# comment
+
+
   dimension: age {
     type: number
     sql: ${TABLE}.AGE ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [20,30,40,50,60,70]
+    sql: ${age} ;;
+    style: integer
+  }
+
   dimension: city {
     type: string
-    sql: ${TABLE}.CITY ;;
+    sql: ${TABLE}.CITY || ', ' || ${state} ;;
+
   }
 
   dimension: country {
@@ -68,7 +79,8 @@ view: users {
 
   dimension: state {
     type: string
-    sql: ${TABLE}.STATE ;;
+    sql: 'State of ' || ${TABLE}.STATE  ;;
+    drill_fields: [city]
   }
 
   dimension: traffic_source {

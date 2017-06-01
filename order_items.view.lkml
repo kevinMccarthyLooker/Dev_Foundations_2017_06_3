@@ -3,6 +3,7 @@ view: order_items {
 
   dimension: id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
@@ -91,9 +92,21 @@ view: order_items {
   }
 
   measure: count {
+    label: "order item count"
     type: count
     drill_fields: [detail*]
   }
+
+  measure: total_sale_price {
+    type: sum
+    sql: ${sale_price};;
+  }
+
+  measure: average_sale_price {
+    type: average
+    sql: ${sale_price} ;;
+  }
+
 
   # ----- Sets of fields for drilling ------
   set: detail {

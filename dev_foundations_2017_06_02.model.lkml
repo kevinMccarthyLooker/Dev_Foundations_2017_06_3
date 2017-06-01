@@ -9,6 +9,7 @@ include: "*.dashboard"
 explore: users {}
 
 explore: order_items {
+  description: "Context"
   join: inventory_items {
     type: left_outer
     sql_on: ${order_items.inventory_item_id} = ${inventory_items.id} ;;
